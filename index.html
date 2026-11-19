@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bilgin Group Arnavutköy kiralık ve satılık gayrimenkul ilanları.">
+<title>Bilgin Group | Arnavutköy Gayrimenkul</title>
+<style>
+:root{--ink:#171717;--gold:#c6a45b;--paper:#f7f6f2;--muted:#777;--line:#e8e5dc}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1160px;margin:auto;padding:0 22px}
+header{background:#171717;color:#fff;border-bottom:1px solid #38342b}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:Georgia,serif;font-size:25px;letter-spacing:2px;color:#e1c47e}.brand small{display:block;font:10px Arial;letter-spacing:3px;color:#ddd;margin-top:4px}
+nav{display:flex;gap:24px;font-size:14px;color:#eee}.nav a:hover{color:#e1c47e}
+.hero{background:linear-gradient(110deg,rgba(12,12,12,.94),rgba(12,12,12,.65)),url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85') center/cover;color:white;padding:88px 0 76px}
+.eyebrow{color:#dfc47f;font-size:12px;letter-spacing:3px;text-transform:uppercase}
+h1{font:normal clamp(36px,6vw,60px)/1.08 Georgia,serif;max-width:700px;margin:18px 0}
+.hero p{color:#ddd;max-width:570px;line-height:1.7}
+.gold{color:#dfc47f}.search{margin-top:30px;background:white;color:#222;padding:12px;border-radius:10px;display:flex;gap:10px;flex-wrap:wrap;max-width:790px}
+.search select,.search input{flex:1;min-width:140px;border:1px solid var(--line);padding:13px;border-radius:6px;background:#fff;font-size:14px}
+.btn{border:0;background:var(--gold);color:#171717;padding:14px 20px;border-radius:6px;font-weight:bold;cursor:pointer}
+.section{padding:62px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}
+h2{font:normal 34px Georgia,serif;margin:8px 0}.sub{color:var(--muted);line-height:1.6}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.filter{border:1px solid var(--line);background:#fff;padding:9px 15px;border-radius:30px;cursor:pointer}.filter.active{background:#171717;color:#fff;border-color:#171717}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:white;border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #00000012}
+.photo{height:220px;background:#ddd;position:relative}.photo img{width:100%;height:100%;object-fit:cover}.tag{position:absolute;top:14px;left:14px;background:#171717;color:#e4c77e;padding:7px 10px;border-radius:4px;font-size:11px;letter-spacing:1px}
+.card-body{padding:18px}.price{font-size:20px;font-weight:bold;margin:0 0 8px}.card h3{font-size:17px;margin:0 0 8px}.meta{color:var(--muted);font-size:13px;line-height:1.7}.details{display:flex;gap:14px;border-top:1px solid var(--line);margin-top:15px;padding-top:13px;color:#555;font-size:12px}
+.empty{display:none;padding:30px;background:white;border:1px dashed #ccc;border-radius:8px;color:#666}
+.about{background:#1b1b1b;color:#fff}.about p{color:#ccc;line-height:1.8;max-width:680px}
+.contact{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:#eee9dc;padding:28px;border-radius:10px}
+footer{background:#111;color:#bbb;padding:28px 0;font-size:13px}footer .brand{font-size:20px}
+.notice{font-size:12px;color:#8b6e2e;margin-top:18px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}nav{gap:12px;font-size:12px}.hero{padding:65px 0}}
+@media(max-width:560px){.nav{height:auto;padding:18px 0;align-items:flex-start}.nav nav{flex-direction:column;gap:7px;text-align:right}.brand{font-size:21px}.grid{grid-template-columns:1fr}.photo{height:230px}.section{padding:45px 0}.hero{padding:55px 0}.section-head{display:block}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#">BILGIN GROUP<small>GAYRİMENKUL</small></a>
+<nav><a href="#ilanlar">İlanlar</a><a href="#hakkimizda">Hakkımızda</a><a href="#iletisim">İletişim</a></nav>
+</div></header>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Arnavutköy • İstanbul</div>
+<h1>Doğru evi,<br><span class="gold">doğru bağlantıyla</span> bulun.</h1>
+<p>Arnavutköy'deki kiralık ve satılık gayrimenkul ilanlarını keşfedin. Detaylı bilgi ve yer gösterimi için bizimle iletişime geçin.</p>
+<div class="search">
+<select id="type"><option value="">Tüm ilanlar</option><option value="Kiralık">Kiralık</option><option value="Satılık">Satılık</option></select>
+<select id="rooms"><option value="">Tüm oda sayıları</option><option>1+1</option><option>2+1</option><option>3+1</option><option>4+1</option></select>
+<input id="neighborhood" placeholder="Mahalle ara (örn. İslambey)">
+<button class="btn" onclick="filterListings()">İlanları bul</button>
+</div>
+</div></section>
+<section class="section" id="ilanlar"><div class="wrap">
+<div class="section-head"><div><div class="eyebrow">Güncel portföy</div><h2>Gayrimenkul ilanları</h2><div class="sub">Arnavutköy'deki fırsatları inceleyin.</div></div></div>
+<div class="filters"><button class="filter active" onclick="quickFilter('',this)">Tümü</button><button class="filter" onclick="quickFilter('Kiralık',this)">Kiralık</button><button class="filter" onclick="quickFilter('Satılık',this)">Satılık</button></div>
+<div class="grid" id="listingGrid"></div><div class="empty" id="empty">Aramanıza uygun ilan bulunamadı.</div>
+<p class="notice">Not: Bu başlangıç şablonundaki örnek ilanları yayınlamadan önce kendi gerçek ilanlarınızla değiştirin. Fotoğraflar ve bilgiler örnek amaçlıdır.</p>
+</div></section>
+<section class="section about" id="hakkimizda"><div class="wrap"><div class="eyebrow">Biz kimiz?</div><h2>Bilgin Group</h2><p>Arnavutköy ve çevresindeki gayrimenkul alım, satım ve kiralama süreçlerinde doğru seçenekleri doğru bağlantılarla buluşturmayı hedefliyoruz. İlanlarımız hakkında bilgi almak ve ihtiyaçlarınızı paylaşmak için bize ulaşabilirsiniz.</p></div></section>
+<section class="section" id="iletisim"><div class="wrap"><div class="contact"><div><div class="eyebrow">İletişim</div><h2 style="margin-bottom:5px">Aradığınız evi birlikte bulalım.</h2><div class="sub">İlanlar hakkında bilgi ve randevu için WhatsApp'tan yazın.</div></div><a class="btn" id="whatsapp" href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener">WhatsApp'tan ulaşın</a></div><p class="notice">Yayınlamadan önce WhatsApp bağlantısındaki telefon numarasını kendi iş numaranızla değiştirin.</p></div></section>
+<footer><div class="wrap"><div class="brand">BILGIN GROUP</div><p>Gayrimenkul • Arnavutköy / İstanbul</p><span>© <span id="year"></span> Bilgin Group. Tüm hakları saklıdır.</span></div></footer>
+<script>
+// İLAN EKLEME: Aşağıdaki listings listesine yeni bir { ... } kaydı ekleyin.
+// Fotoğraf için herkese açık doğrudan görsel bağlantısı kullanın.
+const listings = [
+ {id:1,type:"Kiralık",title:"Örnek 2+1 daire",neighborhood:"İslambey",price:"Fiyat için arayın",rooms:"2+1",area:"95 m²",image:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",description:"Bu örnek açıklamayı gerçek ilan bilgileriyle değiştirin."},
+ {id:2,type:"Satılık",title:"Örnek 3+1 daire",neighborhood:"Anadolu",price:"Fiyat için arayın",rooms:"3+1",area:"125 m²",image:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80",description:"Bu örnek açıklamayı gerçek ilan bilgileriyle değiştirin."},
+ {id:3,type:"Kiralık",title:"Örnek 1+1 daire",neighborhood:"Arnavutköy Merkez",price:"Fiyat için arayın",rooms:"1+1",area:"65 m²",image:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80",description:"Bu örnek açıklamayı gerçek ilan bilgileriyle değiştirin."}
+];
+function render(items){
+ const grid=document.getElementById('listingGrid');grid.innerHTML='';
+ document.getElementById('empty').style.display=items.length?'none':'block';
+ items.forEach(x=>{const card=document.createElement('article');card.className='card';
+ card.innerHTML=`<div class="photo"><img src="${x.image}" alt="${x.title}"><span class="tag">${x.type}</span></div><div class="card-body"><div class="price">${x.price}</div><h3>${x.title}</h3><div class="meta">${x.neighborhood} Mahallesi, Arnavutköy</div><div class="details"><span>${x.rooms}</span><span>${x.area}</span></div><p class="meta">${x.description}</p></div>`;grid.appendChild(card);});
+}
+function filterListings(){
+ const t=document.getElementById('type').value,r=document.getElementById('rooms').value,n=document.getElementById('neighborhood').value.toLocaleLowerCase('tr');
+ render(listings.filter(x=>(!t||x.type===t)&&(!r||x.rooms===r)&&(!n||x.neighborhood.toLocaleLowerCase('tr').includes(n))));
+}
+function quickFilter(t,el){document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.getElementById('type').value=t;filterListings();}
+document.getElementById('year').textContent=new Date().getFullYear();render(listings);
+</script>
+</body></html>
