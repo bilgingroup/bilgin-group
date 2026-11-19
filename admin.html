@@ -32,6 +32,7 @@ const ADMIN_EMAIL='aliblgn004@gmail.com';let currentListings=[];let currentImage
 const $=id=>document.getElementById(id);
 function message(id,text){$(id).textContent=text;$(id).classList.remove('hidden')}
 function clearMessage(id){$(id).textContent='';$(id).classList.add('hidden')}
+$('price').addEventListener('input',()=>{const digits=$('price').value.replace(/[^0-9]/g,'');$('price').value=digits?Number(digits).toLocaleString('tr-TR'):''});
 function showDashboard(user){if(!user||user.email!==ADMIN_EMAIL){message('loginStatus','Bu hesap yönetici olarak yetkilendirilmemiş.');return;}$('loginPanel').classList.add('hidden');$('dashboard').classList.remove('hidden');loadListings()}
 async function checkSession(){const {data}=await db.auth.getSession();if(data.session)showDashboard(data.session.user)}
 $('loginBtn').addEventListener('click',async()=>{clearMessage('loginStatus');$('loginBtn').disabled=true;const {data,error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});$('loginBtn').disabled=false;if(error){message('loginStatus','Giriş yapılamadı: '+error.message);return;}showDashboard(data.user)});
